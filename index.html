@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>项目导向数理训练营｜APiC × Spillover</title>
+<style>
+:root{--bg:#f5f6f2;--paper:#fff;--text:#20242b;--muted:#667085;--line:#e3e7df;--green:#60745f;--soft:#edf2eb;--red:#a45151;--redsoft:#f9eaea;--blue:#536f86;--bluesoft:#eaf1f6;--gold:#9a7b38;--goldsoft:#faf3df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+nav{position:sticky;top:0;z-index:10;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(8px);padding:10px 18px;display:flex;gap:8px;overflow:auto}
+nav b{white-space:nowrap;margin-right:10px}nav a{white-space:nowrap;text-decoration:none;color:#4d5965;padding:6px 9px;border-radius:8px}nav a:hover{background:#f0f2ee}
+main{max-width:1120px;margin:auto;padding:24px 18px 64px}.hero,.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px}.hero{padding:26px}
+h1{margin:.25rem 0 .6rem;font-size:2rem;line-height:1.25}h2{margin:0 0 12px;font-size:1.35rem}h3{font-size:1.05rem;margin:16px 0 8px}
+p{margin:.45rem 0}.muted,.small{color:var(--muted)}.small{font-size:.88rem}.tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.8rem;font-weight:700;margin:2px 5px 2px 0}
+.red{background:var(--redsoft);color:var(--red)}.blue{background:var(--bluesoft);color:var(--blue)}.green{background:var(--soft);color:var(--green)}.gold{background:var(--goldsoft);color:var(--gold)}
+.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+.progress{height:10px;background:#e5e9e2;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--green)}
+.kpi{background:#f8f9f6;border:1px solid var(--line);border-radius:10px;padding:10px}.kpi strong{font-size:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.93rem}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#fafbf8}
+.task{display:flex;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line)}input[type=checkbox]{margin-top:6px;transform:scale(1.08)}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f3f4f1;border:1px solid var(--line);padding:9px 11px;border-radius:9px;overflow:auto}
+.note{padding:10px 12px;border-radius:9px;background:var(--soft);border-left:4px solid var(--green);margin:10px 0}.warn{background:#fff7e9;border-left-color:#cc8a29}.danger{background:var(--redsoft);border-left-color:var(--red)}
+.module,.quiz,.exercise{border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}
+button{border:0;border-radius:8px;padding:8px 12px;background:#596c58;color:white;font-weight:700;cursor:pointer}button.secondary{background:#edf0eb;color:#34403a;border:1px solid #d5dbd2}
+.option{display:block;padding:4px 0}.feedback{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#f4f5f2}
+textarea{width:100%;min-height:85px;border:1px solid #cfd5cc;border-radius:9px;padding:9px;font:inherit}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+section{scroll-margin-top:65px}.footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:24px}
+</style>
+</head>
+<body>
+<nav><b>数理训练营</b><a href="#home">总览</a><a href="#plan">日程</a><a href="#apic">APiC</a><a href="#math">数理基础</a><a href="#quiz">测试</a><a href="#practice">练习</a><a href="#spillover">Spillover</a></nav>
+<main>
+<section class="hero" id="home">
+<span class="tag red">APiC：10 月中旬前优先</span><span class="tag blue">Spillover：后续深化</span><span class="tag green">基础：高数 + 线代</span>
+<h1>项目导向数理训练营</h1>
+<p class="muted">目标不是补完一整套数学专业课程，而是建立科研里真正能反复使用的逻辑链：问题 → 变量 → 模型 → 参数 → 验证 → 不确定性 → 解释。</p>
+<div class="grid g3" style="margin-top:14px"><div class="kpi"><strong id="pct">0%</strong><br><span class="small">任务完成率</span></div><div class="kpi"><strong id="score">0/0</strong><br><span class="small">测试题得分</span></div><div class="kpi"><strong>10/15</strong><br><span class="small">APiC 阶段截止</span></div></div>
+<div style="margin-top:13px"><div class="progress"><div id="bar"></div></div><div id="ptxt" class="small"></div></div>
+<div class="actions"><button onclick="location.hash='#plan'">开始本周任务</button><button class="secondary" onclick="location.hash='#quiz'">先做测试</button><button class="secondary" onclick="exportProgress()">导出进度</button></div>
+</section>
+
+<section class="card" id="plan"><h2>9/18–10/15 压缩日程</h2>
+<table><tr><th>时间</th><th>重点</th><th>最低交付</th></tr>
+<tr><td>9/18–9/22</td><td>概率统计直觉 + ODE 语言</td><td>会解释均值/方差/条件概率；能读 dX/dt=f(X,t)</td></tr>
+<tr><td>9/23–9/29</td><td>Logistic、指数衰减、Hill 剂量效应</td><td>复现 1 张文献动力学曲线</td></tr>
+<tr><td>9/30–10/6</td><td>T 细胞杀伤 + 敏感性分析</td><td>正常/免疫衰退/抗原错配三情景</td></tr>
+<tr><td>10/7–10/12</td><td>参数表、假设表、结果图</td><td>1 张模型结构 + 2–3 张结果 + 1 张敏感性图</td></tr>
+<tr><td>10/13–10/15</td><td>收口与汇报</td><td>能说清模型回答什么、不能回答什么</td></tr></table>
+
+<h3>任务打卡</h3>
+<label class="task"><input type="checkbox" data-task="t1"><span>区分均值、方差、分布、参数与置信区间。</span></label>
+<label class="task"><input type="checkbox" data-task="t2"><span>理解 P(A|B) ≠ P(B|A)，并能联系检测偏倚。</span></label>
+<label class="task"><input type="checkbox" data-task="t3"><span>读懂一阶 ODE，并逐项翻译成生物学意义。</span></label>
+<label class="task"><input type="checkbox" data-task="t4"><span>解释 EC50、Emax、Hill coefficient。</span></label>
+<label class="task"><input type="checkbox" data-task="t5"><span>复现至少一篇文献中的动力学结果。</span></label>
+<label class="task"><input type="checkbox" data-task="t6"><span>完成关键参数 ±20%、±50% 的单参数扫描。</span></label>
+<label class="task"><input type="checkbox" data-task="t7"><span>完成正常免疫、免疫衰退、抗原错配三情景。</span></label>
+<label class="task"><input type="checkbox" data-task="t8"><span>完成参数—单位—默认值—范围—来源—证据等级表。</span></label>
+<label class="task"><input type="checkbox" data-task="t9"><span>形成可进入 Wiki/PPT 的核心图。</span></label>
+<label class="task"><input type="checkbox" data-task="t10"><span>检查是否把“模型预测/支持”误写为“证明”。</span></label>
+</section>
+
+<section class="card" id="apic"><h2>APiC：最小可解释动力学模型</h2>
+<p>先用 ODE 做到“能解释、能复现、能做敏感性”，暂不为了高级感直接上 PDE/ABM。</p>
+<div class="grid g2">
+<div class="module"><h3>1. 细菌 B(t)</h3><div class="formula">dB/dt = rB·B·(1-B/KB) - cB·B</div><p class="small">rB：增殖率；KB：环境承载量；cB：清除率。</p></div>
+<div class="module"><h3>2. RBD 抗原 A(t)</h3><div class="formula">dA/dt = kexpr·B - kdeg·A</div><p class="small">把“细菌负荷 → 抗原表达 → 抗原降解”显式化。</p></div>
+<div class="module"><h3>3. 记忆 T 细胞 T(t)</h3><div class="formula">dT/dt = kact·A·T - dT·T</div><p class="small">通过改变 T(0) 或 kact 模拟免疫衰退与抗原错配。</p></div>
+<div class="module"><h3>4. 肿瘤 N(t)</h3><div class="formula">dN/dt = gN·N·(1-N/KN) - kkill·T·N</div><p class="small">分离“自然增长”和“T 细胞杀伤”两个机制。</p></div>
+</div>
+<div class="note warn"><b>什么时候升级？</b>只有研究问题真正涉及细菌空间扩散、肿瘤内部梯度或单细胞异质性时，再考虑 PDE/ABM。</div>
+<h3>剂量-效应</h3><div class="formula">E(D)=Emax·D^n/(EC50^n + D^n)</div>
+<p>重点理解饱和效应：剂量增加并不会无限线性增加效果，因此“最高剂量”通常不等于“最佳剂量”。</p>
+</section>
+
+<section class="card" id="math"><h2>数理基础地图</h2>
+<div class="module"><h3>概率直觉 <span class="tag red">现在学</span></h3><p>随机变量、分布、均值/方差、条件概率、独立性、Bayes 直觉。</p><div class="formula">P(A|B)=P(A∩B)/P(B)</div></div>
+<div class="module"><h3>统计推断 <span class="tag red">现在学</span></h3><p>参数估计、置信区间、bootstrap、误差与过拟合。核心认知：参数来自有限数据，因此带有不确定性。</p></div>
+<div class="module"><h3>微分方程 <span class="tag red">APiC 核心</span></h3><div class="formula">变化率 = 产生/流入 - 损失/流出</div><p>最低标准：能看懂每一项为什么存在、方向是什么、单位是否匹配。</p></div>
+<div class="module"><h3>敏感性分析 <span class="tag red">APiC 核心</span></h3><p>先做 OAT + 情景分析；有余力再做 Morris；Sobol 不作为 10 月前硬任务。</p></div>
+<div class="module"><h3>GLM / Logistic <span class="tag blue">Spillover 后续</span></h3><div class="formula">logit[P(Y=1)] = β0 + β1X1 + … + βpXp</div><p>等 confirmed spillover 标签可靠后再进入真正概率建模。</p></div>
+<div class="module"><h3>空间统计 <span class="tag blue">Spillover 后续</span></h3><p>Moran's I、空间权重矩阵、空间回归。理解“相邻 grid 并不独立”。</p></div>
+</section>
+
+<section class="card" id="quiz"><h2>概念测试</h2>
+<div class="quiz" data-a="b"><b>1. 文献中某地区记录 20 个病原-宿主关联，能直接说 spillover 概率更高吗？</b>
+<label class="option"><input type="radio" name="q1" value="a"> A 可以</label><label class="option"><input type="radio" name="q1" value="b"> B 不可以，可能有重复报道、检测偏倚且 association ≠ spillover</label><label class="option"><input type="radio" name="q1" value="c"> C 样本够多就可以</label><div class="feedback">答案 B：观测记录不等于真实发生过程。</div></div>
+<div class="quiz" data-a="c"><b>2. EC50 最接近：</b>
+<label class="option"><input type="radio" name="q2" value="a"> A 无效剂量</label><label class="option"><input type="radio" name="q2" value="b"> B 最大毒性剂量</label><label class="option"><input type="radio" name="q2" value="c"> C 达到一半最大效应的剂量</label><div class="feedback">答案 C。</div></div>
+<div class="quiz" data-a="a"><b>3. 在 -kkill·T·N 中，提高 kkill 最直接表示：</b>
+<label class="option"><input type="radio" name="q3" value="a"> A 单位 T 细胞杀伤能力增强</label><label class="option"><input type="radio" name="q3" value="b"> B 肿瘤承载量增加</label><label class="option"><input type="radio" name="q3" value="c"> C 细菌增殖加快</label><div class="feedback">答案 A。</div></div>
+<div class="quiz" data-a="b"><b>4. 每次只改变一个参数 ±20%，属于：</b>
+<label class="option"><input type="radio" name="q4" value="a"> A Bayesian inference</label><label class="option"><input type="radio" name="q4" value="b"> B OAT sensitivity analysis</label><label class="option"><input type="radio" name="q4" value="c"> C spatial regression</label><div class="feedback">答案 B。</div></div>
+<div class="quiz" data-a="c"><b>5. 哪个结果最不应该直接叫 spillover probability？</b>
+<label class="option"><input type="radio" name="q5" value="a"> A 经可靠标签拟合和校准的 logistic 输出</label><label class="option"><input type="radio" name="q5" value="b"> B 后验预测概率</label><label class="option"><input type="radio" name="q5" value="c"> C HFP、overlap、distance 人为加权得到的 0–1 分数</label><div class="feedback">答案 C：应称 relative risk score / spatial risk index。</div></div>
+<button onclick="grade()">提交测试</button> <span id="qresult" class="small"></span>
+</section>
+
+<section class="card" id="practice"><h2>项目练习</h2>
+<div class="exercise"><h3>APiC 练习 1｜免疫衰退情景</h3><p>固定其他参数，仅改变 T(0)=100%、50%、20%，比较 72 h 后 N(t)。</p><p><b>交付：</b>时间曲线 + 100–150 字解释结论是否依赖 T(0)。</p><textarea data-note="n1" placeholder="记录参数、结果与待查文献…"></textarea></div>
+<div class="exercise"><h3>APiC 练习 2｜最佳剂量</h3><p>用 Hill 方程表示疗效，再设一个随剂量增加的毒性代价，画 effectiveness / toxicity / net benefit。</p><textarea data-note="n2" placeholder="你准备如何定义净收益？"></textarea></div>
+<div class="exercise"><h3>APiC 练习 3｜参数可信度</h3><p>选 8 个参数，标 A/B/C：A=直接实验或高度一致文献；B=相近体系；C=假设/宽范围。优先对 C 级参数做敏感性。</p><textarea data-note="n3"></textarea></div>
+<div class="exercise"><h3>Spillover 练习 1｜事件去重</h3><p>随机抽 30 个 event，比较原始 event 数与 canonical event 数；设计 duplicate_group_id 与 same/probable_same/distinct。</p><textarea data-note="n4"></textarea></div>
+<div class="exercise"><h3>Spillover 练习 2｜Risk v1</h3><div class="formula">Risk=w1·Suitability+w2·Overlap+w3·exp(-d/λ)+w4·HFP</div><p>做 3 组权重敏感性比较；输出叫 risk index，不叫 probability。</p><textarea data-note="n5"></textarea></div>
+</section>
+
+<section class="card" id="spillover"><h2>Spillover：三阶段路线</h2>
+<div class="grid g3"><div class="module"><h3>Risk v1</h3><p>Host suitability + overlap + distance-decay + HFP。</p><p class="small">先做相对风险指数。</p></div><div class="module"><h3>Risk v2</h3><p>canonical event + evidence quality + 独立验证。</p><p class="small">解决重复统计和标签质量。</p></div><div class="module"><h3>Risk v3</h3><p>Logistic / Poisson / NB / spatial model。</p><p class="small">可靠标签后再做概率化。</p></div></div>
+<div class="note danger"><b>事件数据的核心问题：</b>同一 biological event 可能被多篇论文重复报道；病原在宿主中被检测到不等于明确 spillover；监测强度和发表强度也会制造空间偏差。</div>
+<table><tr><th>字段</th><th>建议</th></tr><tr><td>canonical_event_id</td><td>一个真实事件的唯一 ID</td></tr><tr><td>duplicate_group_id</td><td>聚合同一候选 biological event 的多篇文献</td></tr><tr><td>spillover_evidence</td><td>confirmed / probable / association-only</td></tr><tr><td>evidence_pmids[]</td><td>保留全部证据，但不把 PMID 数当事件数</td></tr><tr><td>confidence</td><td>host / pathogen / location / time / event identity 分开记录</td></tr></table>
+</section>
+
+<section class="card"><h2>资源与学习方式</h2>
+<p><b>概率统计：</b>StatQuest、Khan Academy、OpenIntro Statistics。</p><p><b>ODE：</b>Khan Academy Differential Equations + SciPy <code>solve_ivp</code>。</p><p><b>敏感性：</b>SALib；先 OAT，再 Morris/Sobol。</p>
+<div class="note">每天 60–90 分钟：15 min 概念 → 20 min 手算 → 30 min 项目代码 → 15 min 写下“是什么、为什么、怎么用”。</div>
+</section>
+<p class="footer">任务、测试分数与练习笔记保存在浏览器 localStorage。建议每周导出一次进度 JSON。</p>
+</main>
+<script>
+const tasks=[...document.querySelectorAll('[data-task]')],notes=[...document.querySelectorAll('[data-note]')];
+function refresh(){let d=0;tasks.forEach(x=>{x.checked=localStorage.getItem('mr_'+x.dataset.task)==='1';if(x.checked)d++});let p=tasks.length?Math.round(d/tasks.length*100):0;bar.style.width=p+'%';pct.textContent=p+'%';ptxt.textContent=d+' / '+tasks.length+' 项已完成'}
+tasks.forEach(x=>x.onchange=()=>{localStorage.setItem('mr_'+x.dataset.task,x.checked?'1':'0');refresh()});
+notes.forEach(x=>{x.value=localStorage.getItem('mr_'+x.dataset.note)||'';x.oninput=()=>localStorage.setItem('mr_'+x.dataset.note,x.value)});
+function grade(){let qs=[...document.querySelectorAll('.quiz')],s=0,a=0;qs.forEach(q=>{let x=q.querySelector('input:checked'),f=q.querySelector('.feedback');f.style.display='block';if(x){a++;if(x.value===q.dataset.a){s++;f.style.background='#edf7ef'}else f.style.background='#fff0ef'}});score.textContent=s+'/'+qs.length;qresult.textContent='得分 '+s+'/'+qs.length+(a<qs.length?'（未全部作答）':'');localStorage.setItem('mr_score',s);localStorage.setItem('mr_total',qs.length)}
+function exportProgress(){let o={exported_at:new Date().toISOString(),tasks:{},notes:{},quiz:{score:localStorage.getItem('mr_score'),total:localStorage.getItem('mr_total')}};tasks.forEach(x=>o.tasks[x.dataset.task]=x.checked);notes.forEach(x=>o.notes[x.dataset.note]=x.value);let b=new Blob([JSON.stringify(o,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='math-roadmap-progress.json';a.click()}
+let os=localStorage.getItem('mr_score'),ot=localStorage.getItem('mr_total');if(os!==null)score.textContent=os+'/'+ot;refresh();
+</script>
+</body></html>
