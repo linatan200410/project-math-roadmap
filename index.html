@@ -2,126 +2,272 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>项目导向数理训练营｜APiC × Spillover</title>
-<style>
-:root{--bg:#f5f6f2;--paper:#fff;--text:#20242b;--muted:#667085;--line:#e3e7df;--green:#60745f;--soft:#edf2eb;--red:#a45151;--redsoft:#f9eaea;--blue:#536f86;--bluesoft:#eaf1f6;--gold:#9a7b38;--goldsoft:#faf3df}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
-nav{position:sticky;top:0;z-index:10;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(8px);padding:10px 18px;display:flex;gap:8px;overflow:auto}
-nav b{white-space:nowrap;margin-right:10px}nav a{white-space:nowrap;text-decoration:none;color:#4d5965;padding:6px 9px;border-radius:8px}nav a:hover{background:#f0f2ee}
-main{max-width:1120px;margin:auto;padding:24px 18px 64px}.hero,.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px}.hero{padding:26px}
-h1{margin:.25rem 0 .6rem;font-size:2rem;line-height:1.25}h2{margin:0 0 12px;font-size:1.35rem}h3{font-size:1.05rem;margin:16px 0 8px}
-p{margin:.45rem 0}.muted,.small{color:var(--muted)}.small{font-size:.88rem}.tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:.8rem;font-weight:700;margin:2px 5px 2px 0}
-.red{background:var(--redsoft);color:var(--red)}.blue{background:var(--bluesoft);color:var(--blue)}.green{background:var(--soft);color:var(--green)}.gold{background:var(--goldsoft);color:var(--gold)}
-.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
-.progress{height:10px;background:#e5e9e2;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--green)}
-.kpi{background:#f8f9f6;border:1px solid var(--line);border-radius:10px;padding:10px}.kpi strong{font-size:1.5rem}
-table{width:100%;border-collapse:collapse;font-size:.93rem}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#fafbf8}
-.task{display:flex;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line)}input[type=checkbox]{margin-top:6px;transform:scale(1.08)}
-.formula{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f3f4f1;border:1px solid var(--line);padding:9px 11px;border-radius:9px;overflow:auto}
-.note{padding:10px 12px;border-radius:9px;background:var(--soft);border-left:4px solid var(--green);margin:10px 0}.warn{background:#fff7e9;border-left-color:#cc8a29}.danger{background:var(--redsoft);border-left-color:var(--red)}
-.module,.quiz,.exercise{border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}
-button{border:0;border-radius:8px;padding:8px 12px;background:#596c58;color:white;font-weight:700;cursor:pointer}button.secondary{background:#edf0eb;color:#34403a;border:1px solid #d5dbd2}
-.option{display:block;padding:4px 0}.feedback{display:none;margin-top:8px;padding:8px;border-radius:8px;background:#f4f5f2}
-textarea{width:100%;min-height:85px;border:1px solid #cfd5cc;border-radius:9px;padding:9px;font:inherit}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-section{scroll-margin-top:65px}.footer{text-align:center;color:var(--muted);font-size:.84rem;margin-top:24px}
-</style>
+<title>Research Math Roadmap｜项目导向数理训练营</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav><b>数理训练营</b><a href="#home">总览</a><a href="#plan">日程</a><a href="#apic">APiC</a><a href="#math">数理基础</a><a href="#quiz">测试</a><a href="#practice">练习</a><a href="#spillover">Spillover</a></nav>
+<nav>
+  <b>Research Math Roadmap</b>
+  <a href="#home">总览</a>
+  <a href="#profile">本地项目配置</a>
+  <a href="#roadmap">学习地图</a>
+  <a href="#plan">任务计划</a>
+  <a href="#quiz">测试题</a>
+  <a href="#practice">项目练习</a>
+  <a href="#privacy">隐私说明</a>
+</nav>
 <main>
+
 <section class="hero" id="home">
-<span class="tag red">APiC：10 月中旬前优先</span><span class="tag blue">Spillover：后续深化</span><span class="tag green">基础：高数 + 线代</span>
-<h1>项目导向数理训练营</h1>
-<p class="muted">目标不是补完一整套数学专业课程，而是建立科研里真正能反复使用的逻辑链：问题 → 变量 → 模型 → 参数 → 验证 → 不确定性 → 解释。</p>
-<div class="grid g3" style="margin-top:14px"><div class="kpi"><strong id="pct">0%</strong><br><span class="small">任务完成率</span></div><div class="kpi"><strong id="score">0/0</strong><br><span class="small">测试题得分</span></div><div class="kpi"><strong>10/15</strong><br><span class="small">APiC 阶段截止</span></div></div>
-<div style="margin-top:13px"><div class="progress"><div id="bar"></div></div><div id="ptxt" class="small"></div></div>
-<div class="actions"><button onclick="location.hash='#plan'">开始本周任务</button><button class="secondary" onclick="location.hash='#quiz'">先做测试</button><button class="secondary" onclick="exportProgress()">导出进度</button></div>
+  <span class="tag green">项目导向</span><span class="tag blue">本地个性化</span><span class="tag gold">不上传项目背景</span>
+  <h1>科研数理能力训练台</h1>
+  <p class="muted">这是一个泛化的学习框架：公开网页只保留数学与建模方法。你可以在浏览器本地填写或导入自己的项目背景，网页会据此生成更具体的学习优先级、阶段任务、测试题和项目练习。</p>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="kpi"><strong id="pct">0%</strong><br><span class="small">任务完成率</span></div>
+    <div class="kpi"><strong id="score">0/0</strong><br><span class="small">测试题得分</span></div>
+    <div class="kpi"><strong id="days">—</strong><br><span class="small">距本地目标日</span></div>
+  </div>
+  <div style="margin-top:13px"><div class="progress"><div id="bar"></div></div><div id="ptxt" class="small"></div></div>
 </section>
 
-<section class="card" id="plan"><h2>9/18–10/15 压缩日程</h2>
-<table><tr><th>时间</th><th>重点</th><th>最低交付</th></tr>
-<tr><td>9/18–9/22</td><td>概率统计直觉 + ODE 语言</td><td>会解释均值/方差/条件概率；能读 dX/dt=f(X,t)</td></tr>
-<tr><td>9/23–9/29</td><td>Logistic、指数衰减、Hill 剂量效应</td><td>复现 1 张文献动力学曲线</td></tr>
-<tr><td>9/30–10/6</td><td>T 细胞杀伤 + 敏感性分析</td><td>正常/免疫衰退/抗原错配三情景</td></tr>
-<tr><td>10/7–10/12</td><td>参数表、假设表、结果图</td><td>1 张模型结构 + 2–3 张结果 + 1 张敏感性图</td></tr>
-<tr><td>10/13–10/15</td><td>收口与汇报</td><td>能说清模型回答什么、不能回答什么</td></tr></table>
+<section class="card" id="profile">
+  <h2>本地项目配置</h2>
+  <div class="privacy"><b>隐私设计：</b>下面填写/导入的内容仅保存在当前浏览器的 <code>localStorage</code> 中，不会写入 GitHub 仓库，也不会由本网页主动上传到服务器。敏感项目可以只写抽象描述，例如“动力学模型”“遗传距离”“空间风险”，无需写病原名、菌株名、序列或未公开数据。</div>
 
-<h3>任务打卡</h3>
-<label class="task"><input type="checkbox" data-task="t1"><span>区分均值、方差、分布、参数与置信区间。</span></label>
-<label class="task"><input type="checkbox" data-task="t2"><span>理解 P(A|B) ≠ P(B|A)，并能联系检测偏倚。</span></label>
-<label class="task"><input type="checkbox" data-task="t3"><span>读懂一阶 ODE，并逐项翻译成生物学意义。</span></label>
-<label class="task"><input type="checkbox" data-task="t4"><span>解释 EC50、Emax、Hill coefficient。</span></label>
-<label class="task"><input type="checkbox" data-task="t5"><span>复现至少一篇文献中的动力学结果。</span></label>
-<label class="task"><input type="checkbox" data-task="t6"><span>完成关键参数 ±20%、±50% 的单参数扫描。</span></label>
-<label class="task"><input type="checkbox" data-task="t7"><span>完成正常免疫、免疫衰退、抗原错配三情景。</span></label>
-<label class="task"><input type="checkbox" data-task="t8"><span>完成参数—单位—默认值—范围—来源—证据等级表。</span></label>
-<label class="task"><input type="checkbox" data-task="t9"><span>形成可进入 Wiki/PPT 的核心图。</span></label>
-<label class="task"><input type="checkbox" data-task="t10"><span>检查是否把“模型预测/支持”误写为“证明”。</span></label>
+  <div class="grid g2" style="margin-top:12px">
+    <label class="field"><span>项目名称（可写泛称）</span><input id="projectName" type="text" placeholder="例如：项目 A / 肿瘤动力学 / 宿主-病原空间模型"></label>
+    <label class="field"><span>目标截止日</span><input id="deadline" type="date"></label>
+  </div>
+  <label class="field"><span>项目背景（建议脱敏）</span><textarea id="background" placeholder="用 5–10 句话说明：研究问题、已有数据、当前模型、最紧急交付、你最不确定的数学部分。"></textarea></label>
+  <label class="field"><span>当前数理基础</span><textarea id="foundation" placeholder="例如：高数和线代学过；概率论不系统；会 Python；能读简单 ODE。"></textarea></label>
+
+  <h3>选择项目需要的数学主题</h3>
+  <div class="topic-list" id="topics">
+    <label><input type="checkbox" value="probability">概率与条件概率</label>
+    <label><input type="checkbox" value="statistics">统计推断</label>
+    <label><input type="checkbox" value="regression">回归 / GLM</label>
+    <label><input type="checkbox" value="ode">ODE 动力学</label>
+    <label><input type="checkbox" value="dose">剂量-效应 / Hill</label>
+    <label><input type="checkbox" value="sensitivity">敏感性分析</label>
+    <label><input type="checkbox" value="distance">距离 / 相似度</label>
+    <label><input type="checkbox" value="phylo">遗传 / 系统发育距离</label>
+    <label><input type="checkbox" value="spatial">空间统计</label>
+    <label><input type="checkbox" value="risk">风险评分与概率模型</label>
+  </div>
+
+  <div class="grid g2" style="margin-top:12px">
+    <div class="localbox">
+      <h3>导入本地项目说明</h3>
+      <p class="small">支持 <code>.txt</code> / <code>.md</code> / <code>.json</code> / <code>.csv</code>。文件只在你的浏览器内读取。</p>
+      <input id="fileInput" type="file" accept=".txt,.md,.json,.csv,text/plain,text/markdown,application/json,text/csv">
+      <div class="small" id="fileStatus"></div>
+    </div>
+    <div class="localbox">
+      <h3>配置管理</h3>
+      <div class="actions">
+        <button onclick="saveProfile()">保存本地配置</button>
+        <button class="secondary" onclick="generateAll()">生成学习方案</button>
+        <button class="secondary" onclick="exportProfile()">导出配置 JSON</button>
+        <button class="secondary" onclick="clearProfile()">清空本地配置</button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="card" id="apic"><h2>APiC：最小可解释动力学模型</h2>
-<p>先用 ODE 做到“能解释、能复现、能做敏感性”，暂不为了高级感直接上 PDE/ABM。</p>
-<div class="grid g2">
-<div class="module"><h3>1. 细菌 B(t)</h3><div class="formula">dB/dt = rB·B·(1-B/KB) - cB·B</div><p class="small">rB：增殖率；KB：环境承载量；cB：清除率。</p></div>
-<div class="module"><h3>2. RBD 抗原 A(t)</h3><div class="formula">dA/dt = kexpr·B - kdeg·A</div><p class="small">把“细菌负荷 → 抗原表达 → 抗原降解”显式化。</p></div>
-<div class="module"><h3>3. 记忆 T 细胞 T(t)</h3><div class="formula">dT/dt = kact·A·T - dT·T</div><p class="small">通过改变 T(0) 或 kact 模拟免疫衰退与抗原错配。</p></div>
-<div class="module"><h3>4. 肿瘤 N(t)</h3><div class="formula">dN/dt = gN·N·(1-N/KN) - kkill·T·N</div><p class="small">分离“自然增长”和“T 细胞杀伤”两个机制。</p></div>
-</div>
-<div class="note warn"><b>什么时候升级？</b>只有研究问题真正涉及细菌空间扩散、肿瘤内部梯度或单细胞异质性时，再考虑 PDE/ABM。</div>
-<h3>剂量-效应</h3><div class="formula">E(D)=Emax·D^n/(EC50^n + D^n)</div>
-<p>重点理解饱和效应：剂量增加并不会无限线性增加效果，因此“最高剂量”通常不等于“最佳剂量”。</p>
+<section class="card" id="roadmap">
+  <h2>通用数理学习地图</h2>
+  <div class="grid g2">
+    <div class="module"><h3>1. 概率直觉</h3><p>随机变量、分布、均值/方差、条件概率、Bayes 直觉。</p><div class="formula">P(A|B)=P(A∩B)/P(B)</div><p class="small">用于理解“观察到的证据”与“真实过程”之间的差别。</p></div>
+    <div class="module"><h3>2. 统计推断</h3><p>参数估计、置信区间、bootstrap、假设检验、抽样偏倚。</p><p class="small">用于判断结果有多稳定，而不是只看一个点估计。</p></div>
+    <div class="module"><h3>3. 回归 / GLM</h3><div class="formula">logit[P(Y=1)] = β0 + β1X1 + … + βpXp</div><p>适合二分类风险、计数模型和多变量效应分析。</p></div>
+    <div class="module"><h3>4. ODE 动力学</h3><div class="formula">dX/dt = production - loss + inflow - outflow</div><p>适合研究随时间变化的生物量、细胞群、药效和传播动力学。</p></div>
+    <div class="module"><h3>5. 剂量-效应</h3><div class="formula">E(D)=Emax·D^n/(EC50^n+D^n)</div><p>学习饱和、半最大效应和非线性响应。</p></div>
+    <div class="module"><h3>6. 敏感性分析</h3><p>先 OAT / 情景分析，再根据需要做 Morris / Sobol。</p><p class="small">解决“哪些参数最影响结论？”</p></div>
+    <div class="module"><h3>7. 距离与相似度</h3><p>Euclidean、Manhattan、cosine、Jaccard、加权距离、距离衰减。</p><div class="formula">w(d)=exp(-d/λ)</div></div>
+    <div class="module"><h3>8. 遗传 / 系统发育距离</h3><p>理解替换率、p-distance、模型校正距离、树上 patristic distance。</p><p class="small">敏感项目只需在本地配置中指定“遗传距离”，公开页不需要具体物种或序列。</p></div>
+    <div class="module"><h3>9. 空间统计</h3><p>空间邻接、Moran's I、空间自相关、空间回归。</p><p class="small">解决相邻空间单元并非独立样本的问题。</p></div>
+    <div class="module"><h3>10. 风险评分 vs 概率</h3><p>人为加权得到的 0–1 分数通常是 relative risk index；只有经过统计拟合与校准后才适合解释为 probability。</p></div>
+  </div>
 </section>
 
-<section class="card" id="math"><h2>数理基础地图</h2>
-<div class="module"><h3>概率直觉 <span class="tag red">现在学</span></h3><p>随机变量、分布、均值/方差、条件概率、独立性、Bayes 直觉。</p><div class="formula">P(A|B)=P(A∩B)/P(B)</div></div>
-<div class="module"><h3>统计推断 <span class="tag red">现在学</span></h3><p>参数估计、置信区间、bootstrap、误差与过拟合。核心认知：参数来自有限数据，因此带有不确定性。</p></div>
-<div class="module"><h3>微分方程 <span class="tag red">APiC 核心</span></h3><div class="formula">变化率 = 产生/流入 - 损失/流出</div><p>最低标准：能看懂每一项为什么存在、方向是什么、单位是否匹配。</p></div>
-<div class="module"><h3>敏感性分析 <span class="tag red">APiC 核心</span></h3><p>先做 OAT + 情景分析；有余力再做 Morris；Sobol 不作为 10 月前硬任务。</p></div>
-<div class="module"><h3>GLM / Logistic <span class="tag blue">Spillover 后续</span></h3><div class="formula">logit[P(Y=1)] = β0 + β1X1 + … + βpXp</div><p>等 confirmed spillover 标签可靠后再进入真正概率建模。</p></div>
-<div class="module"><h3>空间统计 <span class="tag blue">Spillover 后续</span></h3><p>Moran's I、空间权重矩阵、空间回归。理解“相邻 grid 并不独立”。</p></div>
+<section class="card" id="plan">
+  <h2>本地生成的任务计划</h2>
+  <p class="small">点击“生成学习方案”后，这里会根据截止日、所选主题和项目背景生成阶段优先级。所有内容仅保存在本地。</p>
+  <div id="generatedPlan" class="generated">尚未生成。</div>
+  <h3>任务打卡</h3>
+  <div id="taskList"></div>
 </section>
 
-<section class="card" id="quiz"><h2>概念测试</h2>
-<div class="quiz" data-a="b"><b>1. 文献中某地区记录 20 个病原-宿主关联，能直接说 spillover 概率更高吗？</b>
-<label class="option"><input type="radio" name="q1" value="a"> A 可以</label><label class="option"><input type="radio" name="q1" value="b"> B 不可以，可能有重复报道、检测偏倚且 association ≠ spillover</label><label class="option"><input type="radio" name="q1" value="c"> C 样本够多就可以</label><div class="feedback">答案 B：观测记录不等于真实发生过程。</div></div>
-<div class="quiz" data-a="c"><b>2. EC50 最接近：</b>
-<label class="option"><input type="radio" name="q2" value="a"> A 无效剂量</label><label class="option"><input type="radio" name="q2" value="b"> B 最大毒性剂量</label><label class="option"><input type="radio" name="q2" value="c"> C 达到一半最大效应的剂量</label><div class="feedback">答案 C。</div></div>
-<div class="quiz" data-a="a"><b>3. 在 -kkill·T·N 中，提高 kkill 最直接表示：</b>
-<label class="option"><input type="radio" name="q3" value="a"> A 单位 T 细胞杀伤能力增强</label><label class="option"><input type="radio" name="q3" value="b"> B 肿瘤承载量增加</label><label class="option"><input type="radio" name="q3" value="c"> C 细菌增殖加快</label><div class="feedback">答案 A。</div></div>
-<div class="quiz" data-a="b"><b>4. 每次只改变一个参数 ±20%，属于：</b>
-<label class="option"><input type="radio" name="q4" value="a"> A Bayesian inference</label><label class="option"><input type="radio" name="q4" value="b"> B OAT sensitivity analysis</label><label class="option"><input type="radio" name="q4" value="c"> C spatial regression</label><div class="feedback">答案 B。</div></div>
-<div class="quiz" data-a="c"><b>5. 哪个结果最不应该直接叫 spillover probability？</b>
-<label class="option"><input type="radio" name="q5" value="a"> A 经可靠标签拟合和校准的 logistic 输出</label><label class="option"><input type="radio" name="q5" value="b"> B 后验预测概率</label><label class="option"><input type="radio" name="q5" value="c"> C HFP、overlap、distance 人为加权得到的 0–1 分数</label><div class="feedback">答案 C：应称 relative risk score / spatial risk index。</div></div>
-<button onclick="grade()">提交测试</button> <span id="qresult" class="small"></span>
+<section class="card" id="quiz">
+  <h2>本地测试题</h2>
+  <p class="small">题目会优先覆盖你选中的主题；默认题库是通用的，不包含任何公开项目细节。</p>
+  <div id="quizArea"><div class="generated">请先在“本地项目配置”中选择主题并点击“生成学习方案”。</div></div>
+  <div class="actions"><button onclick="gradeQuiz()">提交测试</button><button class="secondary" onclick="generateQuiz()">换一组题</button></div>
+  <span id="quizResult" class="small"></span>
 </section>
 
-<section class="card" id="practice"><h2>项目练习</h2>
-<div class="exercise"><h3>APiC 练习 1｜免疫衰退情景</h3><p>固定其他参数，仅改变 T(0)=100%、50%、20%，比较 72 h 后 N(t)。</p><p><b>交付：</b>时间曲线 + 100–150 字解释结论是否依赖 T(0)。</p><textarea data-note="n1" placeholder="记录参数、结果与待查文献…"></textarea></div>
-<div class="exercise"><h3>APiC 练习 2｜最佳剂量</h3><p>用 Hill 方程表示疗效，再设一个随剂量增加的毒性代价，画 effectiveness / toxicity / net benefit。</p><textarea data-note="n2" placeholder="你准备如何定义净收益？"></textarea></div>
-<div class="exercise"><h3>APiC 练习 3｜参数可信度</h3><p>选 8 个参数，标 A/B/C：A=直接实验或高度一致文献；B=相近体系；C=假设/宽范围。优先对 C 级参数做敏感性。</p><textarea data-note="n3"></textarea></div>
-<div class="exercise"><h3>Spillover 练习 1｜事件去重</h3><p>随机抽 30 个 event，比较原始 event 数与 canonical event 数；设计 duplicate_group_id 与 same/probable_same/distinct。</p><textarea data-note="n4"></textarea></div>
-<div class="exercise"><h3>Spillover 练习 2｜Risk v1</h3><div class="formula">Risk=w1·Suitability+w2·Overlap+w3·exp(-d/λ)+w4·HFP</div><p>做 3 组权重敏感性比较；输出叫 risk index，不叫 probability。</p><textarea data-note="n5"></textarea></div>
+<section class="card" id="practice">
+  <h2>项目练习生成器</h2>
+  <p class="small">练习只使用你本地输入的抽象背景和主题，不会把具体项目内容写回 GitHub。</p>
+  <div id="practiceArea" class="generated">尚未生成。</div>
+  <label class="field"><span>你的练习笔记</span><textarea id="practiceNotes" placeholder="记录模型假设、参数来源、验证方式、待查问题……"></textarea></label>
 </section>
 
-<section class="card" id="spillover"><h2>Spillover：三阶段路线</h2>
-<div class="grid g3"><div class="module"><h3>Risk v1</h3><p>Host suitability + overlap + distance-decay + HFP。</p><p class="small">先做相对风险指数。</p></div><div class="module"><h3>Risk v2</h3><p>canonical event + evidence quality + 独立验证。</p><p class="small">解决重复统计和标签质量。</p></div><div class="module"><h3>Risk v3</h3><p>Logistic / Poisson / NB / spatial model。</p><p class="small">可靠标签后再做概率化。</p></div></div>
-<div class="note danger"><b>事件数据的核心问题：</b>同一 biological event 可能被多篇论文重复报道；病原在宿主中被检测到不等于明确 spillover；监测强度和发表强度也会制造空间偏差。</div>
-<table><tr><th>字段</th><th>建议</th></tr><tr><td>canonical_event_id</td><td>一个真实事件的唯一 ID</td></tr><tr><td>duplicate_group_id</td><td>聚合同一候选 biological event 的多篇文献</td></tr><tr><td>spillover_evidence</td><td>confirmed / probable / association-only</td></tr><tr><td>evidence_pmids[]</td><td>保留全部证据，但不把 PMID 数当事件数</td></tr><tr><td>confidence</td><td>host / pathogen / location / time / event identity 分开记录</td></tr></table>
+<section class="card" id="privacy">
+  <h2>隐私与部署建议</h2>
+  <div class="note">
+    <b>公开 GitHub Pages 只保留“方法框架”。</b>项目名称、病原/宿主信息、遗传距离数据、未公开实验设计、参数表、序列、具体模型结果等都建议只在本地浏览器配置。
+  </div>
+  <table>
+    <tr><th>内容</th><th>建议存放位置</th></tr>
+    <tr><td>概率统计、ODE、空间统计等通用知识</td><td>公开 GitHub Pages</td></tr>
+    <tr><td>项目摘要（脱敏版本）</td><td>浏览器 localStorage</td></tr>
+    <tr><td>未公开项目细节 / 真实参数 / 序列 / 私有数据</td><td>本地文件或私有仓库，不进入公开站点</td></tr>
+    <tr><td>学习打卡与测试结果</td><td>浏览器 localStorage，可导出 JSON</td></tr>
+  </table>
+  <div class="note warn"><b>注意：</b>GitHub Pages 是公开静态站点。即使网页本身“本地处理”，也不要把敏感默认值、示例项目名或真实数据直接写进仓库源码。</div>
 </section>
 
-<section class="card"><h2>资源与学习方式</h2>
-<p><b>概率统计：</b>StatQuest、Khan Academy、OpenIntro Statistics。</p><p><b>ODE：</b>Khan Academy Differential Equations + SciPy <code>solve_ivp</code>。</p><p><b>敏感性：</b>SALib；先 OAT，再 Morris/Sobol。</p>
-<div class="note">每天 60–90 分钟：15 min 概念 → 20 min 手算 → 30 min 项目代码 → 15 min 写下“是什么、为什么、怎么用”。</div>
-</section>
-<p class="footer">任务、测试分数与练习笔记保存在浏览器 localStorage。建议每周导出一次进度 JSON。</p>
+<p class="footer">Research Math Roadmap · Public framework, private local context.</p>
 </main>
+
 <script>
-const tasks=[...document.querySelectorAll('[data-task]')],notes=[...document.querySelectorAll('[data-note]')];
-function refresh(){let d=0;tasks.forEach(x=>{x.checked=localStorage.getItem('mr_'+x.dataset.task)==='1';if(x.checked)d++});let p=tasks.length?Math.round(d/tasks.length*100):0;bar.style.width=p+'%';pct.textContent=p+'%';ptxt.textContent=d+' / '+tasks.length+' 项已完成'}
-tasks.forEach(x=>x.onchange=()=>{localStorage.setItem('mr_'+x.dataset.task,x.checked?'1':'0');refresh()});
-notes.forEach(x=>{x.value=localStorage.getItem('mr_'+x.dataset.note)||'';x.oninput=()=>localStorage.setItem('mr_'+x.dataset.note,x.value)});
-function grade(){let qs=[...document.querySelectorAll('.quiz')],s=0,a=0;qs.forEach(q=>{let x=q.querySelector('input:checked'),f=q.querySelector('.feedback');f.style.display='block';if(x){a++;if(x.value===q.dataset.a){s++;f.style.background='#edf7ef'}else f.style.background='#fff0ef'}});score.textContent=s+'/'+qs.length;qresult.textContent='得分 '+s+'/'+qs.length+(a<qs.length?'（未全部作答）':'');localStorage.setItem('mr_score',s);localStorage.setItem('mr_total',qs.length)}
-function exportProgress(){let o={exported_at:new Date().toISOString(),tasks:{},notes:{},quiz:{score:localStorage.getItem('mr_score'),total:localStorage.getItem('mr_total')}};tasks.forEach(x=>o.tasks[x.dataset.task]=x.checked);notes.forEach(x=>o.notes[x.dataset.note]=x.value);let b=new Blob([JSON.stringify(o,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='math-roadmap-progress.json';a.click()}
-let os=localStorage.getItem('mr_score'),ot=localStorage.getItem('mr_total');if(os!==null)score.textContent=os+'/'+ot;refresh();
+const DB='rmr_';
+const topicNames={probability:'概率与条件概率',statistics:'统计推断',regression:'回归 / GLM',ode:'ODE 动力学',dose:'剂量-效应',sensitivity:'敏感性分析',distance:'距离 / 相似度',phylo:'遗传 / 系统发育距离',spatial:'空间统计',risk:'风险评分与概率模型'};
+const questionBank={
+ probability:[
+  ['条件概率 P(A|B) 与 P(B|A) 的关系是？',['通常相等','一般不相等，除非特殊条件成立','只在样本量小时不相等'],1,'条件概率有方向性。'],
+  ['若一个阳性结果来自低特异性的检测，最应警惕什么？',['观测阳性不等于真实状态','均值一定错误','方差一定为零'],0,'检测过程会影响后验判断。']],
+ statistics:[
+  ['95% 置信区间最合理的理解是？',['参数有95%概率在本次区间内','重复抽样下该构造方法约95%的区间覆盖真值','95%的样本落在区间内'],1,'频率学派 CI 是重复抽样性质。'],
+  ['bootstrap 的核心思想是？',['从现有样本重复重采样近似统计量分布','增加原始样本量','强制数据服从正态分布'],0,'bootstrap 用重采样估计不确定性。']],
+ regression:[
+  ['Logistic 回归适合哪类常见输出？',['连续无界数值','二分类概率/odds','只有时间序列'],1,'Logistic 常用于二分类结果。'],
+  ['多变量回归中加入协变量主要可帮助？',['完全消除偏倚','控制部分混杂并估计条件关联','让模型必然因果'],1,'回归不能自动建立因果。']],
+ ode:[
+  ['dX/dt 表示什么？',['X 的绝对值','X 随时间的瞬时变化率','X 的方差'],1,'ODE 的核心是变化率。'],
+  ['在 dX/dt=aX-bX 中，若 a>b，X 的初始趋势通常是？',['增长','下降','恒定'],0,'净增长率 a-b 为正。']],
+ dose:[
+  ['Hill 方程中的 EC50 通常表示？',['零效应剂量','达到一半最大效应的剂量/浓度','最大毒性剂量'],1,'EC50 是 half maximal effective concentration/dose。'],
+  ['Hill coefficient 增大通常意味着？',['响应曲线在转折区更陡','最大效应一定下降','EC50 必然为0'],0,'n 控制协同性/陡峭程度。']],
+ sensitivity:[
+  ['一次只改变一个参数属于？',['OAT sensitivity analysis','Bayesian posterior','空间回归'],0,'OAT 是基础局部/情景敏感性方法。'],
+  ['敏感性分析最主要回答？',['模型代码是否能运行','哪些参数变化最影响输出','所有参数真实值'],1,'它评估参数不确定性如何传递到输出。']],
+ distance:[
+  ['Jaccard 相似度主要用于？',['集合重叠程度','连续变量均值','时间积分'],0,'Jaccard=交集/并集。'],
+  ['exp(-d/λ) 常用来表示？',['距离越远权重越大','距离衰减','固定概率'],1,'典型 distance-decay kernel。']],
+ phylo:[
+  ['p-distance 最直观表示？',['序列不同位点比例','树的节点数量','样本方差'],0,'p-distance 是最基础序列差异比例。'],
+  ['patristic distance 指？',['两个样本地理质心距离','系统发育树上连接两个叶节点的枝长总和','Jaccard 距离'],1,'它是树路径上的枝长总和。']],
+ spatial:[
+  ['空间自相关意味着？',['相邻位置可能更相似','所有网格独立','空间变量不能回归'],0,'邻近观测常不独立。'],
+  ["Moran's I 主要用于？",['空间自相关','剂量-效应','序列比对'],0,'Moran’s I 是常用全局空间自相关指标。']],
+ risk:[
+  ['人为把多个0–1指标加权得到0.8，最稳妥叫法是？',['80%发生概率','relative risk score / index','p-value'],1,'未经拟合与校准不应解释成概率。'],
+  ['若想把风险输出解释为概率，通常还需要？',['模型拟合与校准','只做min-max归一化','把权重相加到1'],0,'概率需要统计意义上的估计与校准。']]
+};
+function selectedTopics(){return [...document.querySelectorAll('#topics input:checked')].map(x=>x.value)}
+function saveProfile(){
+ const d={name:projectName.value,deadline:deadline.value,background:background.value,foundation:foundation.value,topics:selectedTopics()};
+ localStorage.setItem(DB+'profile',JSON.stringify(d)); updateDays(); alert('已保存到当前浏览器。');
+}
+function loadProfile(){
+ const raw=localStorage.getItem(DB+'profile'); if(!raw)return;
+ try{const d=JSON.parse(raw);projectName.value=d.name||'';deadline.value=d.deadline||'';background.value=d.background||'';foundation.value=d.foundation||'';document.querySelectorAll('#topics input').forEach(x=>x.checked=(d.topics||[]).includes(x.value));}catch(e){}
+ updateDays();
+}
+function updateDays(){
+ if(!deadline.value){days.textContent='—';return}
+ const diff=Math.ceil((new Date(deadline.value+'T23:59:59')-new Date())/86400000);days.textContent=diff>=0?diff+'天':'已过期';
+}
+deadline.addEventListener('change',updateDays);
+fileInput.addEventListener('change',async e=>{
+ const f=e.target.files[0]; if(!f)return;
+ try{const txt=await f.text();background.value=(background.value?background.value+'\n\n':'')+txt.slice(0,30000);fileStatus.textContent='已在本地读取：'+f.name+'（未上传）';}catch(err){fileStatus.textContent='读取失败：'+err.message}
+});
+function makeTasks(tops){
+ const core=['写出当前研究问题中的输入、输出和单位','列出参数来源：直接数据 / 文献 / 假设','明确一个独立验证方式','做一次关键假设或参数的敏感性检查'];
+ const map={
+ probability:'用项目中的一个证据链练习条件概率方向性',
+ statistics:'为一个关键估计量写出不确定性或置信区间思路',
+ regression:'判断当前输出是否适合 linear / logistic / Poisson 等模型',
+ ode:'把一个动态过程写成“产生 - 损失”的最小 ODE',
+ dose:'画一条 Hill 剂量-效应曲线并解释 EC50',
+ sensitivity:'对 3 个关键参数分别做 ±20% 扫描',
+ distance:'比较至少两种距离/相似度定义及其适用场景',
+ phylo:'区分 p-distance、模型校正距离和树上距离',
+ spatial:'检查空间样本是否存在邻近依赖',
+ risk:'明确当前输出是 score、relative odds 还是 probability'
+ };
+ return core.concat(tops.map(t=>map[t])).filter(Boolean);
+}
+function generatePlan(){
+ saveProfile(); const tops=selectedTopics(); const tasks=makeTasks(tops);
+ let deadlineText=deadline.value?('目标日：'+deadline.value):'未设置截止日';
+ let phases=[];
+ const n=deadline.value?Math.max(1,Math.ceil((new Date(deadline.value)-new Date())/86400000)):28;
+ if(n<=21) phases=['阶段 1：只补最小概念与公式直觉','阶段 2：立即绑定一个项目小练习','阶段 3：形成可交付图/表/模型说明并做敏感性'];
+ else phases=['阶段 1：基础概念闭环','阶段 2：模型方法与代码实践','阶段 3：项目复现与验证','阶段 4：进阶统计/空间方法'];
+ generatedPlan.textContent=deadlineText+'\n\n'+phases.map((x,i)=>(i+1)+'. '+x).join('\n')+'\n\n优先主题：'+(tops.length?tops.map(t=>topicNames[t]).join('、'):'请先选择主题')+'\n\n建议原则：70% 时间放项目练习，30% 时间补理论。每学一个概念必须形成“是什么 / 为什么用 / 怎么验证”三句话。';
+ taskList.innerHTML=tasks.map((t,i)=>'<label class="task"><input type="checkbox" data-task="g'+i+'"><span>'+t+'</span></label>').join('');
+ bindTasks();
+}
+function generateQuiz(){
+ const tops=selectedTopics(); const use=tops.length?tops:['probability','statistics','ode','sensitivity','distance','risk'];
+ let qs=[]; use.forEach(t=>{if(questionBank[t])qs.push(...questionBank[t].map(q=>({topic:t,q})))});
+ qs=qs.sort(()=>Math.random()-.5).slice(0,Math.min(8,qs.length));
+ quizArea.innerHTML=qs.map((o,i)=>'<div class="quiz" data-answer="'+o.q[2]+'"><b>'+(i+1)+'. ['+topicNames[o.topic]+'] '+o.q[0]+'</b>'+o.q[1].map((x,j)=>'<label class="option"><input type="radio" name="qq'+i+'" value="'+j+'"> '+String.fromCharCode(65+j)+'. '+x+'</label>').join('')+'<div class="feedback">'+o.q[3]+'</div></div>').join('');
+ quizResult.textContent='';
+}
+function generatePractice(){
+ const tops=selectedTopics(); const name=projectName.value||'当前项目'; const b=(background.value||'').trim();
+ const generic=[
+  '练习 1｜问题形式化：把“'+name+'”写成 1 个输出变量、3–5 个输入变量和对应单位。',
+  '练习 2｜参数可信度：把关键参数分成 A=直接数据、B=相近文献、C=假设，并优先检查 C 级参数。',
+  '练习 3｜验证设计：为模型写一个“不使用模型输入本身”的独立验证方案。'
+ ];
+ const map={
+  ode:'动态练习｜构建一个不超过 4 个状态变量的 ODE，并解释每一项。',
+  sensitivity:'稳健性练习｜选择 3 个最不确定参数做 OAT 或情景分析。',
+  distance:'距离练习｜比较 Jaccard、Euclidean 和 distance-decay 对同一问题的解释差异。',
+  phylo:'遗传距离练习｜说明你真正需要的是序列差异、模型校正距离还是树上距离，并写出选择理由。',
+  spatial:'空间练习｜检查是否存在相邻样本不独立，并设计一个空间自相关诊断。',
+  risk:'风险练习｜先构建 relative risk index，再写清楚升级到 probability model 所需的标签和校准条件。',
+  regression:'回归练习｜根据输出类型选择 linear/logistic/Poisson，并解释分布假设。',
+  statistics:'不确定性练习｜为一个关键结果设计 bootstrap 或置信区间。',
+  probability:'证据练习｜写出一个容易混淆 P(A|B) 与 P(B|A) 的项目例子。',
+  dose:'剂量练习｜用 Hill 曲线探索半最大效应和饱和区间。'
+ };
+ const extra=tops.map(t=>map[t]).filter(Boolean);
+ practiceArea.textContent=(generic.concat(extra)).join('\n\n')+(b?'\n\n本地背景关键词提示：请仅基于你上方输入的脱敏背景自行补充变量，不会上传或写回仓库。':'');
+}
+function generateAll(){generatePlan();generateQuiz();generatePractice()}
+function bindTasks(){
+ [...document.querySelectorAll('[data-task]')].forEach(x=>{
+   x.checked=localStorage.getItem(DB+'task_'+x.dataset.task)==='1';
+   x.onchange=()=>{localStorage.setItem(DB+'task_'+x.dataset.task,x.checked?'1':'0');refreshProgress()}
+ }); refreshProgress();
+}
+function refreshProgress(){
+ const xs=[...document.querySelectorAll('[data-task]')]; let d=xs.filter(x=>x.checked).length; let p=xs.length?Math.round(d/xs.length*100):0;
+ bar.style.width=p+'%';pct.textContent=p+'%';ptxt.textContent=xs.length?(d+' / '+xs.length+' 项已完成'):'尚未生成任务';
+}
+function gradeQuiz(){
+ const qs=[...document.querySelectorAll('.quiz')]; let s=0,a=0;
+ qs.forEach(q=>{const x=q.querySelector('input:checked'),f=q.querySelector('.feedback');f.style.display='block';if(x){a++;if(+x.value===+q.dataset.answer){s++;f.style.background='#edf7ef'}else f.style.background='#fff0ef'}});
+ score.textContent=s+'/'+qs.length;quizResult.textContent=' 得分 '+s+'/'+qs.length+(a<qs.length?'（有未作答题）':'');localStorage.setItem(DB+'score',s);localStorage.setItem(DB+'total',qs.length);
+}
+practiceNotes.addEventListener('input',()=>localStorage.setItem(DB+'practiceNotes',practiceNotes.value));
+function exportProfile(){
+ saveProfile(); const payload={profile:JSON.parse(localStorage.getItem(DB+'profile')||'{}'),practiceNotes:practiceNotes.value,exportedAt:new Date().toISOString()};
+ const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='research-math-roadmap-local-profile.json';a.click();
+}
+function clearProfile(){
+ if(!confirm('只清除本网页的本地项目配置、任务和笔记？'))return;
+ Object.keys(localStorage).filter(k=>k.startsWith(DB)).forEach(k=>localStorage.removeItem(k));location.reload();
+}
+loadProfile();practiceNotes.value=localStorage.getItem(DB+'practiceNotes')||'';let s=localStorage.getItem(DB+'score'),t=localStorage.getItem(DB+'total');if(s!==null)score.textContent=s+'/'+t;updateDays();
+if((JSON.parse(localStorage.getItem(DB+'profile')||'{}').topics||[]).length)generateAll();
 </script>
-</body></html>
+</body>
+</html>
